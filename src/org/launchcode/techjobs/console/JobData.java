@@ -62,7 +62,7 @@ public class JobData {
      * with "Enterprise Holdings, Inc".
      *
      * @param column   Column that should be searched.
-     * @param value Value of teh field to search for
+     * @param value Value of the field to search for
      * @return List of all jobs matching the criteria
      */
     public static ArrayList<HashMap<String, String>> findByColumnAndValue(String column, String value) {
@@ -73,15 +73,23 @@ public class JobData {
         ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
 
         for (HashMap<String, String> row : allJobs) {
-
+            String input_value = value.toLowerCase();
             String aValue = row.get(column);
+            String bValue = aValue.toLowerCase();
 
-            if (aValue.contains(value)) {
-                jobs.add(row);
+            if (bValue.contains(input_value)) {
+                    jobs.add(row);
+                }
+            }
+        ArrayList<HashMap<String,String>> jobs_unique = new ArrayList<>();
+        for (HashMap<String, String> row : jobs) {
+            jobs_unique.add(row);
+            if (jobs_unique.contains(row)) {
+                jobs_unique.remove(row);
             }
         }
 
-        return jobs;
+        return jobs_unique;
     }
 
     /**
@@ -123,6 +131,26 @@ public class JobData {
             System.out.println("Failed to load job data");
             e.printStackTrace();
         }
+    }
+
+    public static ArrayList<HashMap<String, String>> findByValue(String column, String value) {
+
+        // load data, if not already loaded
+        loadData();
+
+        ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
+
+        for (HashMap<String, String> row : allJobs) {
+            String input_value = value.toLowerCase();
+            String aValue = row.get(column);
+            String bValue = aValue.toLowerCase();
+
+            if (bValue.contains(input_value)) {
+                jobs.add(row);
+            }
+        }
+
+        return jobs;
     }
 
 }
