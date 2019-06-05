@@ -73,9 +73,14 @@ public class TechJobs {
                         for (String value : job_values_lower) {
                             if (value.contains(searchTerm)) {
                                 searched_jobs.add(job);
-                            }
-                            printJobs(searched_jobs);
-                        }}
+
+                            }}}
+                    printJobs(searched_jobs);
+                            //printJobs(searched_jobs);
+                            //else {
+                            //                                System.out.println("No Results...");
+
+
                         // TreeMap<String, String> job_lower = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
                         //for (HashMap<String, String> job : allJobs) {
 
@@ -201,11 +206,12 @@ public class TechJobs {
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
         ArrayList<HashMap<String,String>> jobs_unique = new ArrayList<>();
+
         for (HashMap<String, String> job : someJobs) {
 
             if (!jobs_unique.contains(job)) {
                 jobs_unique.add(job);
-            }
+            }}
         for (HashMap<String, String> job_map : jobs_unique){
             System.out.println("\n*****");
             for (String key : job_map.keySet()){
@@ -214,9 +220,6 @@ public class TechJobs {
             }
             System.out.println("*****");
         }
-    }
-
-
     }
 }
 

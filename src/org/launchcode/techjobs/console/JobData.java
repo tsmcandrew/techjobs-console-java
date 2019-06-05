@@ -83,9 +83,9 @@ public class JobData {
             }
         ArrayList<HashMap<String,String>> jobs_unique = new ArrayList<>();
         for (HashMap<String, String> row : jobs) {
-            jobs_unique.add(row);
-            if (jobs_unique.contains(row)) {
-                jobs_unique.remove(row);
+
+            if (!jobs_unique.contains(row)) {
+                jobs_unique.add(row);
             }
         }
 
