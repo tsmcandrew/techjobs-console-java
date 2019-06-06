@@ -117,7 +117,7 @@ public class TechJobs {
                         if (is_in.contains(searchTerm_lower)) {
                             is_in_param.add(is_in);
                         }}
-                    if (is_in_param.equals("")) {
+                    if (is_in_param.isEmpty()) {
                             System.out.println("No Results...");
 
                         } else {
