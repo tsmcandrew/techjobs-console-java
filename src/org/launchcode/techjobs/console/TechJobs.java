@@ -74,17 +74,19 @@ public class TechJobs {
                             if (value.contains(searchTerm)) {
                                 searched_jobs.add(job);
 
-                            }}}
+                            }
+                        }
+                    }
                     printJobs(searched_jobs);
-                            //printJobs(searched_jobs);
-                            //else {
-                            //                                System.out.println("No Results...");
+                    //printJobs(searched_jobs);
+                    //else {
+                    //                                System.out.println("No Results...");
 
 
-                        // TreeMap<String, String> job_lower = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
-                        //for (HashMap<String, String> job : allJobs) {
+                    // TreeMap<String, String> job_lower = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
+                    //for (HashMap<String, String> job : allJobs) {
 
-                        //    job_lower.putAll(job);
+                    //    job_lower.putAll(job);
 
                             /*
 
@@ -107,61 +109,27 @@ public class TechJobs {
 
                     for (String job : search_by_jobs) {
                         String job_lower = job.toLowerCase();
-                        search_params.add(job_lower); }
+                        search_params.add(job_lower);
+                    }
+                    ArrayList<String> is_in_param = new ArrayList<>();
+                    for (String is_in : search_params) {
 
-                    if (search_params.contains(searchTerm_lower)) {
-                        printJobs(JobData.findByColumnAndValue(searchField, searchTerm));
-                    } else {
-                        System.out.println("No Results...");
+                        if (is_in.contains(searchTerm_lower)) {
+                            is_in_param.add(is_in);
+                        }}
+                    if (is_in_param.equals("")) {
+                            System.out.println("No Results...");
+
+                        } else {
+                            printJobs(JobData.findByColumnAndValue(searchField, searchTerm_lower));
+                        }
+
+
                     }
                 }
             }
-
-                            /*
-                            for (String key : job.keySet()) {
-
-                                if (key.equalsIgnoreCase(searchTerm)) {
-                                    //System.out.println("\n*****");
-
-                                    String value = job.get(key);
-                                    HashMap<String, String> solo_job = new HashMap<String, String>();
-                                    solo_job.put(key, value);
-
-                                    //System.out.println(key + ": " + value);
-
-                                    //System.out.println("*****");
-                                }
-                                searched_jobs.put(solo_job);
-                                printJobs(searched_jobs);
-                            }
-                            for (String value : job.values()) {
-                                if (value.equalsIgnoreCase(searchTerm)) {
-                                    System.out.println("\n*****");
-
-                                    String key = job.get(value);
-                                    System.out.println(key + ": " + value);
-
-                                    System.out.println("*****");
-                                }
-                            }
-
-                        }
-                    }
-                } */ /*else {
-                    for (String item : search_list) {
-                        String search_item = searchTerm.toLowerCase();
-                        String item_lower = item.toLowerCase();
-                        if (search_item.equalsIgnoreCase(item_lower)) {
-                            printJobs(JobData.findByColumnAndValue(searchField, searchTerm));
-                        } else {
-                            System.out.println("No Results");
-                        }
-                    }
-                } */
-
-
-            }
         }
+
 
 
     // ﻿Returns the key of the selected item from the choices Dictionary;
